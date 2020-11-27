@@ -18,6 +18,7 @@ export class ProductsComponent implements OnInit {
     this.checkoutForm = this.formBuilder.group({
       productName: '',
       description: '',
+      starRating: '',
       price: '', 
     });
   }
@@ -35,6 +36,7 @@ export class ProductsComponent implements OnInit {
     if (!product.productName) { 
       return;
     }
+
     this.productService.createProduct(product)
       .subscribe(product => {
         this.products.push(product);
