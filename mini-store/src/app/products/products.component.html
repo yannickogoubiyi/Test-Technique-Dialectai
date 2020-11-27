@@ -1,0 +1,47 @@
+<h2>Liste des produits</h2>
+
+<div class="products">
+  <table style="width:100%">
+    <tr>
+      <th>Nom du produit</th>
+      <th>Prix</th>
+      <th>Actions</th>
+    </tr>
+    <tr *ngFor="let product of products">
+      <td>{{product.productName}}</td>
+      <td>{{product.price}}</td>
+      <td><button class="delete" title="delete product"
+        (click)="delete(product.id)">Supprimer</button>
+        <a routerLink="/detail/{{product.id}}">Details</a>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<div>
+  <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)" class="my-form">
+
+    <div>
+      <label for="productName">Nom :</label><br>
+      <input id="productName" type="text" formControlName="productName">
+    </div>
+
+    <div>
+      <label for="description">Description :</label><br>
+      <input id="description" type="text" formControlName="description">
+    </div>
+  
+    <div>
+      <label for="price">Prix :</label><br>
+      <input id="price" type="text" formControlName="price">
+    </div>
+
+    <div>
+      <label for="starRating">Rating :</label><br>
+      <input id="starRating" type="text" formControlName="starRating">
+    </div>
+  
+    <button class="button" type="submit">Ajouter</button>
+  
+  </form>
+</div>

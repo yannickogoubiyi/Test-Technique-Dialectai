@@ -1,0 +1,21 @@
+
+<button (click)="goBack()">Retour</button>
+
+<div *ngIf="product">
+    <h2>{{product.productName | uppercase}} Details</h2>
+    <div>
+        <label>Nom du produit : {{product.productName}}</label>
+    </div>
+    <div>
+        <label>Description : {{product.description}}</label>
+    </div>
+    <div>
+        <label>Rating : {{product.starRating}}</label>
+    </div>
+    <div>
+        <label>Prix : {{product.price}}</label>
+    </div>
+    <div>
+        <img src="{{product.imageUrl}}" alt="Image du produit">
+    </div>
+</div>
