@@ -11,7 +11,8 @@
       <td>{{product.productName}}</td>
       <td>{{product.price}}</td>
       <td><button class="delete" title="delete product"
-        (click)="delete(product.id)">Supprimer</button>
+        (click)="delete(product)">Supprimer</button>
+
         <a routerLink="/detail/{{product.id}}">Details</a>
       </td>
     </tr>

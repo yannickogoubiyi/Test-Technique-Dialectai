@@ -40,8 +40,10 @@ export class ProductService {
       );
   }
 
-  deleteProduct(id: number): Observable<{}> {
+  deleteProduct(product: Product | number): Observable<{}> {
+    const id = typeof product === 'number' ? product : product.id;
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    
     const url = `${this.productsUrl}/${id}`;
     return this.http.delete<Product>(url, { headers })
       .pipe(

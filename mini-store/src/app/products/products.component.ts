@@ -43,9 +43,11 @@ export class ProductsComponent implements OnInit {
     this.checkoutForm.reset();
   }
 
-  delete(id: number): void {
-    //this.products = this.products.filter(h => h !== product);
-    this.productService.deleteProduct(id).subscribe();
+  delete(product: Product): void {
+    this.products = this.products.filter(h => h !== product);
+    console.log(this.products[10]);
+
+    this.productService.deleteProduct(product).subscribe();
   }
 
 }
